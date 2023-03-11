@@ -1,0 +1,365 @@
+ /*
+  PRIMARY COLOUR IS #65799B
+  from http://colorhunt.co/c/80280
+*/
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #1D1F21;
+}
+body {
+  margin: 0;
+  line-height: 1;
+  font-size: 12px;
+  color: white;
+  padding-left: 0px;
+  box-sizing: border-box;
+  font-family: 'Inter';
+}
+button {
+  border: none;
+  background: none;
+  background-color: black;
+  height: 1em;
+  color: inherit;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  vertical-align: text-bottom;
+  border-radius : 3px;
+  font-weight : bold;
+  margin : 0px 5px;
+}
+input {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+::-webkit-scrollbar {
+	background-color: #1D1F21;
+}
+::-webkit-scrollbar-track {
+	background-color: #1D1F21;
+}
+::-webkit-scrollbar:vertical {
+	width: 5px;
+}
+::-webkit-scrollbar:horizontal {
+	height: 5px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #65799B !important;
+	border-radius: 0 !important;
+}
+#spaneditor {
+  position: fixed;
+  display: none;
+  height: 1em;
+}
+#resize {
+  position: fixed;
+  top: 0;
+  left: 0;
+  cursor: ew-resize;
+  width: 5px;
+  height: 100%;
+  background-color: rgba(255,255,255,0.1);
+}
+#resizestyles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: ew-resize;
+  height: 100%;
+  width: 5px;
+  background-color: rgba(255,255,255,0.1);
+}
+.tabs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 30px;
+  background-color: #191B1D;
+  font-size: 0;
+  font-weight : bold;
+  box-shadow : 0px 0px 5px black, inset 0px 0px 1px black;
+}
+.tabs li {
+  display: inline-block;
+  padding: 5px 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: all .2s;
+  border-color: transparent;
+  font-size: 12px;
+  position: relative;
+  top : 4px;
+}
+.tabs li:hover {
+  border-bottom: 2px solid rgb(64,0,0);
+  padding-bottom: 7px;
+}
+.tabs li.active {
+  border-bottom: 3px solid darkred;
+  padding-bottom: 6px;
+  cursor: pointer;
+}
+.section {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  right: 0;
+  overflow : hidden;
+  height : 50vh;
+}
+body > .section {
+  top: 30px;
+}
+#styles > .section {
+  left: 0px;
+  top: 30px;
+}
+body.main-htmlcss .section#htmlcss {
+  display: flex;
+}
+body.main-console .section#console {
+  display: flex;
+}
+body.main-security .section#security {
+  display: flex;    
+}
+body.main-csssection .section#csssection {
+  display: flex;
+}
+body.styletabs-compstyles .section#compstyles {
+  display: block;
+}
+#elements {
+  height: 50vh;
+  overflow: auto;
+  flex: auto;
+  line-height: 1.5;
+  padding : 20px 20px 100vh 20px;
+}
+#styles {
+  height: 100%;
+  width: 100%;
+  padding-left: 5px;
+  box-sizing: border-box;
+  position: relative;
+  flex: none;
+}
+button:hover, button:focus {
+  background-color: rgba(255,255,255,0.2);
+}
+button::after {
+  vertical-align: top;
+  line-height: 1;
+}
+div.element-children {
+  margin-left: 10px;
+}
+div.element-wrapper {
+  white-space: nowrap;
+}
+div.element-wrapper > button, button.square {
+  width: 1em;
+  font-family: 'feather';
+}
+.navbutton {
+  width : 50px !important;
+  height : 30px;
+  border-radius : 0px;
+  background : #191B1D;
+  font-weight : bold;
+  font-size : 15px;
+}
+div.element-wrapper > button::after {
+  content: '-';
+}
+div.element-wrapper.collapsed > button::after {
+  content: '+';
+}
+div.element-wrapper.collapsed > div.element-children {
+  display: inline;
+  margin-left: 0;
+}
+div.element-wrapper.collapsed > div.element-children::before {
+  content: '...';
+}
+div.element-wrapper.collapsed > div.element-children > * {
+  display: none;
+}
+div.element-wrapper.nochildren > button {
+  opacity: 0;
+  pointer-events: none;
+}
+div.element-wrapper.nochildren > div.element-children {
+  display: none;
+}
+div.element-wrapper.active > span.element-openTag, div.element-wrapper.active > span.element-closeTag {
+  background-color: rgba(255,255,255,0.1);
+  padding : 1px 3px;
+  border-radius : 3px;
+}
+div.element-wrapper > span.element-openTag, div.element-wrapper > span.element-closeTag {
+  padding : 1px 3px;
+}
+span.syntax {
+  white-space: pre;
+  font-family: Inter;
+}
+span.syntax.red {color: #CC6666;font-weight:600;}
+span.syntax.orange {color: #DE935F;}
+span.syntax.cream {color: #F0C674;}
+span.syntax.yellow {color: #B5BD68;}
+span.syntax.aqua {color: #8ABEB7;}
+span.syntax.blue {color: #81A2BE;}
+span.syntax.purple {color: #B294BB;}
+span.syntax.grey {color: #969896;font-weight:600;}
+span.syntax.white {color: #C5C8C6;}
+span.editting {
+  opacity: 0;
+  pointer-events: none;
+}
+span.textNode::before, span.textNode::after {
+  content: "\"";
+}
+span.commentNode::before {
+  content: "<!--";
+}
+span.commentNode::after {
+  content: "-->";
+}
+span.doctypeNode::before {
+  content: "<!DOCTYPE ";
+}
+span.doctypeNode::after {
+  content: ">";
+}
+#buttons {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+#buttons button {
+  margin-left: 2px;
+}
+#compstyles div {
+  display: block;
+}
+#compstyles {
+  padding : 30px;
+  height : calc(100%-30px);
+  overflow : auto;
+}
+ul.context-back, ul.context-submenu {
+  margin: 0;
+  background-color: #2B2B2B;
+  list-style: none;
+  padding: 5px 0;
+  border-radius : 5px;
+  box-shadow : 0px 0px 5px black;
+  font-weight : 600;
+  animation-name: blur-in;
+  animation-duration: 0.2s;
+  animation-iteration-count: 1;
+}
+ul.context-back {
+  position: fixed;
+}
+li.context-option {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+li.context-option:hover {
+  background-color: #414141;
+}
+li.context-option.context-hassubmenu::after {
+  content: '>';
+  display: inline-block;
+  padding-left: 5px;
+}
+li.context-option > ul.context-submenu {
+  position: absolute;
+  left: 100%;
+  display: none;
+  transform: translateY(-23px);
+}
+li.context-option:hover > ul.context-submenu {
+  display: block;
+}
+@font-face {
+      font-family: 'feather';
+      src: url('https://okj579.github.io/feather-font/font/feather.eot?52352131');
+      src: url('https://okj579.github.io/feather-font/font/feather.eot?52352131#iefix') format('embedded-opentype'),url('https://okj579.github.io/feather-font/font/feather.woff?52352131') format('woff'),
+           url('https://okj579.github.io/feather-font/font/feather.ttf?52352131') format('truetype'),
+           url('https://okj579.github.io/feather-font/font/feather.svg?52352131#feather') format('svg');
+      font-weight: normal;
+      font-style: normal;
+}
+.feather {
+  font-family : feather;
+  color : white;
+  display : inline;
+  margin : 0px 3px 0px 0px;
+}
+.fnoextra {
+  font-family : feather;
+}
+@keyframes blur-in {
+  from {
+    filter : blur(50px);
+  } to {
+    filter : blur(0px);
+  }
+}
+#console-input {
+  position : fixed;
+  bottom : 0px;
+  left : 0px;
+  width : 100%;
+  height : 20px;
+  background : rgba(255,255,255,0.1);
+}
+#consoleOutput {
+  position : fixed;
+  top : 5px;
+  left : 0px;
+  height : calc(100vh-25px);
+  width : 100%;
+  padding : 25px;
+}
+.evalResult {
+  font-weight : bold;
+  color : #B5BD68;
+  margin : 0px 0px 20px 0px;
+}
+.evalCommand {
+  color : #B294BB;
+  margin : 0px 0px 20px 0px;
+}
+.evalError {
+  color : #CC6666;
+  margin : 0px 0px 20px 0px;
+}
+.copy {
+  margin : 2px;
+  color : rgba(255,255,255,0.5);
+  transition : color 1s;
+  text-decoration : none;
+}
+.copy:hover {
+  color : rgba(255,255,255,0.75);
+}
+.quickcss {
+  position : fixed;
+  top : 50%;
+  left : 0;
+  width : 100%;
+  height : 50%;
+}
